@@ -1,0 +1,48 @@
+.container {
+    background-color: #ffff;
+}
+
+.imagemCabecalho {
+    width: 100%;
+    height: 75px;
+    object-fit: cover;
+}
+
+.perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: -2.5rem;
+}
+
+.avatar {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50px;
+    border: 4px solid var(--roxo-escuro);
+    margin-bottom: 1rem;
+}
+
+.container section {
+    margin-top: 2rem;
+    padding: 2rem;
+
+}
+.botao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: var(--cinza-claro);
+    color: var(--roxo-escuro);
+    margin-bottom: 18px ;
+    padding: 8px;
+    border: 2px solid var(--roxo-escuro);
+    transition: color .5s background-color .5s;
+
+}
+
+.botao:hover {
+    background-color: var(--roxo-escuro);
+    color: var(--cinza-claro);
+}
