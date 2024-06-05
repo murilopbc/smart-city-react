@@ -6,7 +6,7 @@ import { z } from "zod";
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useNavigate } from 'react-router-dom';
 
-const schemaLogin = z.object({
+const schemaCadastro = z.object({
     usuario: z.string()
         .min(1, "O mínimo é de 5 caracteres")
         .max(15, "O máximo são 15 caracteres"),
@@ -18,63 +18,23 @@ const schemaLogin = z.object({
 export function CadastroUsuario() {
     const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm({
-        resolver: zodResolver(schemaLogin)
+        resolver: zodResolver(schemaCadastro)
     });
-
-    async function obterTokenAdministrador() {
-        try {
-            const response = await axios.post('http://localhost:8000/api/token', {
-                username: 'joao',  // substitua pelo username do administrador
-                password: '123'  // substitua pela senha do administrador
-            });
-
-            return response.data.access;
-        } catch (error) {
-            console.error("Erro ao obter token do administrador", error);
-            alert("Erro ao obter token do administrador. Por favor, tente novamente.");
-            throw error;
-        }
-    }
-
     async function obterDadosFormulario(data) {
         try {
-            const adminToken = await obterTokenAdministrador();
-
-            await axios.post('http://localhost:8000/api/create_user', {
-                username: data.usuario,
-                password: data.senha
-            }, {
-                headers: {
-                    'Authorization': `Bearer ${adminToken}`
-                }
-            });
-
-            // Envia os dados de login para obter o token do usuário recém-criado
-            const response = await axios.post('http://localhost:8000/api/token', {
+            const response = await axios.post('http://localhost:8000/api/create_user', {
                 username: data.usuario,
                 password: data.senha
             });
 
-            const { access, refresh } = response.data;
-            localStorage.setItem('access_token', access);
-            localStorage.setItem('refresh_token', refresh);
-
-            console.log("Cadastro e autenticação realizados com sucesso");
-            alert("Cadastro e autenticação realizados com sucesso");
-            navigate('/home');
+            alert('Usuário cadastrado com sucesso!');
+            navigate('/home'); // Redireciona para a página inicial após o cadastro
         } catch (error) {
-            if (error.response && error.response.status === 400) {
-                console.log("Usuário já cadastrado");
-                alert("Usuário já cadastrado!");
-            } else if (error.response && error.response.status === 401) {
-                console.log("Não autorizado", error);
-                alert("Erro de autorização. Por favor, tente novamente.");
-            } else {
-                console.log("Erro na autenticação", error);
-                alert("Erro ao realizar o cadastro. Por favor, tente novamente.");
-            }
+            console.error('Erro no cadastro do usuário', error);
         }
     }
+
+
 
     return (
         <div className={estilos.conteiner}>
