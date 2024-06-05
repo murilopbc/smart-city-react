@@ -4,7 +4,7 @@ export function Header(){
     return (
         <header className={estilos.container}>
             
-            <p>Sensores</p>
+            <p>SmartCity</p>
             
 
         </header>

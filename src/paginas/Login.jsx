@@ -23,7 +23,7 @@ export function Login(){
  
     async function obterDadosFormulario(data){
         try{
-            const response = await axios.post('http://127.0.0.1:8000/api/token', {
+            const response = await axios.post('http://localhost:8000/api/token', {
                 username: data.usuario,
                 password: data.senha
             });
@@ -37,6 +37,9 @@ export function Login(){
             catch(error){
                     console.log("Erro na autenticação", error);
             }
+    }
+    function redirectToSignUp() {
+        navigate('/cadUser');
     }
  
     return(
@@ -62,6 +65,7 @@ export function Login(){
                     <p>{errors.senha.message}</p>
                 )}
                 <button className={estilos.botao}>Entrar</button>
+                <p><a onClick={redirectToSignUp}>Cadastre-se</a></p>
             </form>
         </div>
     );
