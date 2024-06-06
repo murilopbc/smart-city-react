@@ -1,13 +1,13 @@
 .container {
-    background-color: var(--roxo-escuro);
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: black; 
 }
 
 .container p {
     font-size: 2rem;
-    color: var(--cinza-claro);
+    color: white;
     margin-right: 10px;
     margin: 0 16px;
 }

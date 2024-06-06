@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export function Lateral() {
     return (
         <aside className={estilos.container}>
-            <section>
+            <section className={estilos.container}>
             <Link className={estilos.botao} to='/home'>
                     Visualizar Sensores
                 </Link>

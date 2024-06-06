@@ -8,11 +8,11 @@ import { useNavigate } from 'react-router-dom';
 
 const schemaCadastro = z.object({
     usuario: z.string()
-        .min(1, "O mínimo é de 5 caracteres")
-        .max(15, "O máximo são 15 caracteres"),
+        .min(3, "O mínimo é de 3 caracteres")
+        .max(10, "O máximo são 10 caracteres"),
     senha: z.string()
-        .min(2, "Informe 4 caracteres")
-        .max(20, "O máximo são 8 caracteres"),
+        .min(4, "Informe 4 caracteres")
+        .max(6, "O máximo são 6 caracteres"),
 });
 
 export function CadastroUsuario() {
@@ -30,7 +30,7 @@ export function CadastroUsuario() {
             alert('Usuário cadastrado com sucesso!');
             navigate('/home'); // Redireciona para a página inicial após o cadastro
         } catch (error) {
-            console.error('Erro no cadastro do usuário', error);
+            alert('Usuário já cadastrado no sistema!');
         }
     }
 
@@ -47,7 +47,7 @@ export function CadastroUsuario() {
                     placeholder="Usuário"
                 />
                 {errors.usuario && (
-                    <p>{errors.usuario.message}</p>
+                    <p className={estilos.error}>{errors.usuario.message}</p>
                 )}
                 <input
                     {...register('senha')}
@@ -56,7 +56,7 @@ export function CadastroUsuario() {
                     placeholder="Senha"
                 />
                 {errors.senha && (
-                    <p>{errors.senha.message}</p>
+                    <p className={estilos.error}>{errors.senha.message}</p>
                 )}
                 <button className={estilos.botao}>Cadastrar</button>
             </form>

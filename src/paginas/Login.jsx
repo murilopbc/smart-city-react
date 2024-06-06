@@ -8,11 +8,11 @@ import { useNavigate } from 'react-router-dom';
 
 const schemaLogin = z.object({
     usuario: z.string()
-        .min(1, "O mínimo é de 5 caracteres")
-        .max(15, "O máximo são 15 caracteres"),
+        .min(3, "O mínimo é de 3 caracteres")
+        .max(10, "O máximo são 10 caracteres"),
     senha: z.string()
-        .min(2, "Informe 4 caracteres")
-        .max(20, "O máximo são 8 caracteres"),
+        .min(4, "Informe 4 caracteres")
+        .max(6, "O máximo são 6 caracteres"),
 });
 
 export function Login() {
@@ -32,15 +32,13 @@ export function Login() {
             localStorage.setItem('access_token', access);
             localStorage.setItem('refresh_token', refresh);
 
-            console.log("Login realizado com sucesso");
             alert("Login realizado com sucesso");
             navigate('/home');
         } catch (error) {
             if (error.response && error.response.status === 401) {
-                console.log("Usuário ou senha incorretos");
+                
                 alert("Usuário ou senha incorretos. Tente novamente.");
             } else {
-                console.log("Erro na autenticação", error);
                 alert("Erro na autenticação. Por favor, tente novamente.");
             }
         }

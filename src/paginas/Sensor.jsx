@@ -42,7 +42,7 @@ export function Sensor() {
 
     return (
         <div className={estilos.container}>
-             <h1>Lista de Sensores</h1>
+             <h1 className={estilos.titulo}>Lista de Sensores</h1>
             <table>
                 <thead>
                     <tr>
