@@ -5,7 +5,7 @@ export function Lateral() {
     return (
         <aside className={estilos.container}>
             <section className={estilos.container}>
-            <Link className={estilos.botao} to='/home'>
+                <Link className={estilos.botao} to='/home'>
                     Visualizar Sensores
                 </Link>
                 <Link className={estilos.botao} to='/home/cadSensor'>
@@ -13,6 +13,11 @@ export function Lateral() {
                 </Link>
                 <Link className={estilos.botao} to='/home/localizacao'>
                     Mapa
+                </Link>
+                <Link
+                    className={estilos.botao}
+                    to='/home/filtro'
+                >Filtros
                 </Link>
                 <Link className={estilos.botao} to='/'>
                     Sair
