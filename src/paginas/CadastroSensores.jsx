@@ -26,13 +26,10 @@ export function CadastrarSensor() {
 
     async function obterDadosFormulario(data) {
         try {
-            const response = await axios.post('http://localhost:8000/api/sensores/', data, {
-                headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('access_token')}`
-                },
-
+            const response = await axios.post('http://localhost:8000/api/sensores/', 
+            {
                 tipo: data.tipo,
-                mac_address: data.mac_address,
+                mac_address: 0,
                 latitude: data.latitude,
                 longitude: data.longitude,
                 localizacao: data.localizacao,
@@ -40,6 +37,11 @@ export function CadastrarSensor() {
                 unidade_medida: data.unidade_medida,
                 status_operacional: data.status_operacional,
                 observacao: data.observacao
+            },
+            {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+                },
 
             });
 
