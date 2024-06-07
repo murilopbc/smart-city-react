@@ -19,7 +19,7 @@ function AjusteDeBounds({ pontos }) {
 export default function Mapa({ pontos }) {
     return (
         <MapContainer
-            style={{ height: '500px', width: '100%' }}
+            style={{ height: '500px', width: '100%', backgroundRepeat: 'no-repeat' }}
             center={[0, 0]}
             zoom={2}
         >

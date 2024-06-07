@@ -1,5 +1,10 @@
 .container {
     padding: 10px;
+    
+}
+
+aside {
+    border-right: 2px solid black;
 }
 
 .botao {
