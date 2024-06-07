@@ -1,4 +1,3 @@
-//
 import React from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -27,10 +26,21 @@ export function CadastrarSensor() {
 
     async function obterDadosFormulario(data) {
         try {
-            const response = await axios.post('http://127.0.0.1:8000/api/sensores/', data, {
+            const response = await axios.post('http://localhost:8000/api/sensores/', data, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('access_token')}`
-                }
+                },
+
+                tipo: data.tipo,
+                mac_address: data.mac_address,
+                latitude: data.latitude,
+                longitude: data.longitude,
+                localizacao: data.localizacao,
+                responsavel: data.responsavel ,
+                unidade_medida: data.unidade_medida,
+                status_operacional: data.status_operacional,
+                observacao: data.observacao
+
             });
 
             alert('Sensor cadastrado com sucesso!');
