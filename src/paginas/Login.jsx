@@ -11,7 +11,7 @@ const schemaLogin = z.object({
         .min(3, "O mínimo é de 3 caracteres")
         .max(10, "O máximo são 10 caracteres"),
     senha: z.string()
-        .min(4, "Informe 4 caracteres")
+        .min(3, "Informe 3 caracteres")
         .max(6, "O máximo são 6 caracteres"),
 });
 

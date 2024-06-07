@@ -1,10 +1,13 @@
+/* Estilos base */
 body {
     background-color: #d3d3d3;
+   
 }
+
 .conteiner {
     border: 1px solid #ccc;
     max-width: 300px;
-    margin: 300px 750px;
+    margin: 300px auto;
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
@@ -44,7 +47,6 @@ body {
 .link {
     color: #007bff;
     cursor: pointer;
-    
 }
 
 .link:hover {
@@ -61,4 +63,17 @@ body {
     margin-top: -6px;
     margin-bottom: 1rem;  
     color: red; 
+}
+
+
+@media screen and (max-width: 768px) {
+    .conteiner {
+        max-width: 90%; 
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .conteiner {
+        margin: 50px auto; 
+    }
 }

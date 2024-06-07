@@ -22,3 +22,8 @@ table, th, td {
 th, td {
     padding: 10px;
 }
+
+.botao {
+    text-decoration: none;
+    color: blue;
+}

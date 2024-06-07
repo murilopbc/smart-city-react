@@ -65,7 +65,7 @@ export function Sensor() {
                             <td>{sensor.responsavel}</td>
                             <td>{sensor.latitude}</td>
                             <td>{sensor.longitude}</td>
-                            <td><Link to={`alterar-sensor/${sensor.id}`}>Alterar</Link></td>
+                            <td><Link className={estilos.botao} to={`alterar-sensor/${sensor.id}`}>Alterar</Link></td>
                         </tr>
                     ))}
                 </tbody>
